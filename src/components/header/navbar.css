@@ -1,0 +1,22 @@
+.navbar{
+    height: 20%;
+    width: 100%;
+    position: sticky;
+    background-color: rgb(16, 16, 16);
+    display: flex;
+    z-index: 1;
+}
+
+.navbar-item
+{
+    display: flex;
+    justify-content: start;
+    font-size: 1.3rem;
+    color: white;
+    padding: 10px;
+    margin: 0 3%;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    align-items: center;
+}

@@ -1,0 +1,46 @@
+.options-container{
+    width: 100%;
+    align-items: center;
+    display: flex;
+}
+.container {
+    position: relative;
+    width: 47%;
+    margin: 0 2%;
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 1.5s ease;
+    background-color: rgba(16, 16, 16, 0.815);
+
+  }
+  
+  .container:hover .overlay {
+    opacity: 0.8;
+  }
+  
+  .text {
+    color: white;
+    align-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
