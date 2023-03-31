@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react'
+import React, {useRef, useEffect, useState} from 'react'
 import { Pose } from '@mediapipe/pose'
 import * as cam from '@mediapipe/camera_utils'
 import Webcam from 'react-webcam'
@@ -8,6 +8,22 @@ import bicepcurls from '../assets/images/bicepcurls.jpg'
 import crunches from '../assets/images/crunches.jpg'
 import squats from '../assets/images/squats.jpg'
 import pushups from '../assets/images/pushups.jpg'
+import { Button } from '@mui/material'
+import './counter.css'
+
+const styles = {
+    webcam: {
+        position: "absolute",
+        marginRight: "auto",
+        marginLeft: "auto",
+        right: 150,
+        top: 120,
+        textAlign: "center",
+        zIndex: 9,
+        width: 1080,
+        height: 640,
+      },
+};
 
 const exerciseInfo = {
     bicepcurls: {
@@ -47,7 +63,7 @@ function Counter(props) {
     const webcamRef = useRef(null);
     const canvasRef = useRef(null);
 
-    let camera;
+    let camera = null;
     const countBox = useRef(null);
 
     function checkResult(results)
@@ -57,8 +73,8 @@ function Counter(props) {
             const position = results.poseLandmarks;
 
             // we will set the height and width of the canvas
-            canvasRef.current.width = Webcam.current.video.videoWidth;
-            canvasRef.current.height = Webcam.current.video.videoHeight;
+            canvasRef.current.width = webcamRef.current.video.videoWidth;
+            canvasRef.current.height = webcamRef.current.video.videoHeight;
 
             const width = canvasRef.current.width;
             const height = canvasRef.current.height;
@@ -128,11 +144,12 @@ function Counter(props) {
             {
                 canvasCtx.beginPath();
                 canvasCtx.arc(updatedPos[i].x, updatedPos[i].y,10,0, 2* Math.PI);
-                canvasCtx.fillStyle = "aaff00";
+                canvasCtx.fillStyle = "#aaff00";
                 canvasCtx.fill();
             }
 
             canvasCtx.font = "40px aerial"
+            if(isNaN(angle)) angle=0;
             canvasCtx.fillText(angle,updatedPos[1].x + 15, updatedPos[1].y + 50);
             canvasCtx.restore();
         }
@@ -148,23 +165,85 @@ function Counter(props) {
             return `https://cdn.jsdelivr.net/npm/@mediapipe/pose/${file}`;
           }});
         pose.setOptions({
-          modelComplexity: 1,
-          smoothLandmarks: true,
-          minDetectionConfidence: 0.6,
-          minTrackingConfidence: 0.5,
+        modelComplexity: 1,
+        smoothLandmarks: true,
+        minDetectionConfidence: 0.5,
+        minTrackingConfidence: 0.5,
         });
+
         pose.onResults(checkResult);
 
+        if(typeof webcamRef.current !== "undefined"
+        && webcamRef.current !== null
+        )
         
+        {
+            camera = new cam.Camera(webcamRef.current.video,{
+                onFrame: async () => {
+                    countBox.current.value = count
 
+                    await pose.send({image: webcamRef.current.video})
+                },
+                width: 640,
+                height: 480,
+            })
+            camera.start();
+        }
     });
+
+    function resetCount(e)
+    {
+        e.preventDefault();
+        console.log("reset clicked");
+        count=0;
+        direction=0;
+    }
 
     
   return (
     <div>
+        <div className='selectBox'>
+            <h1>{props.name}</h1>
+            <img src={imgSrc} width="300" alt="exercise_image" />
+            <br/>
+            <div style={{top: 50}} className="countBox">
+                <h1>Count</h1>
+                <input
+            variant="filled"
+            ref={countBox}
+            value={count}
+            style={{ height: 50, fontSize: 40, width: 80 }}
+          />
+                <br/>
+                <br/>
+                <Button
+            style={{ top: 15 }}
+            size="large"
+            variant="contained"
+            color="primary"
+            onClick={resetCount}
+          >
+            Reset Counter
+          </Button>
+            </div>
+        </div>
 
+        <Webcam ref={webcamRef} style={styles.webcam}/>
+        <canvas ref={canvasRef} style={styles.webcam}/>
+        <div className='back-button'>
+                <Link
+                to="/workout"
+                >
+                    <Button
+                    size='large'
+                    variant='contained'
+                    color='success'>
+                        Back
+                    </Button>
+                </Link>
+        </div>
     </div>
-  )
+  );
 }
 
 export default Counter

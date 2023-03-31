@@ -5,19 +5,19 @@ import { Link } from 'react-router-dom'
 function OptionsCard(props) {
   return (
     <div className='options-container'>
-    <div class="container">
+    <div className="container">
     <Link to="/workout">
     <img src={props.img1} alt="Avatar" className="image" />
-    <div class="overlay">
-    <div class="text">{props.text1}</div>
+    <div className="overlay">
+    <div className="text">{props.text1}</div>
     </div>
     </Link>
     </div>
-    <div class="container">
+    <div className="container">
     <Link to="/yoga">
     <img src={props.img2} alt="Avatar" className="image" />
-    <div class="overlay">
-    <div class="text">{props.text2}</div>
+    <div className="overlay">
+    <div className="text">{props.text2}</div>
     </div>
     </Link>
     </div>

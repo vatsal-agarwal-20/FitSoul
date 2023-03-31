@@ -1,0 +1,23 @@
+.selectBox{
+    position: "absolute";
+    right: 100px;
+    top: 250px;
+    text-align: "center";
+    width: 400px;
+    color: "#05386B";
+    background: "#8EE4AF";
+}
+
+.back-button{
+    position: "absolute";
+    right: 150px;
+    bottom: 150px;
+}
+
+.countBox{
+    position: "absolute";
+    right: 200px;
+    top: 600px;
+    width: 400px;
+    height: 100px;
+}

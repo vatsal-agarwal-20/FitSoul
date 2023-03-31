@@ -4,11 +4,11 @@ import './exercise.css'
 
 function ExerciseSelect(props) {
   return (
-    <div class="container">
+    <div className="container">
     <Link to={`/${props.link}`}>
     <img src={props.img} alt="Avatar" className="image"/>
-    <div class="overlay">
-    <div class="text">{props.text}</div>
+    <div className="overlay">
+    <div className="text">{props.text}</div>
     </div>
     </Link>
     </div>
