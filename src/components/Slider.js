@@ -1,4 +1,3 @@
-import Slider from "infinite-react-carousel";
 import Typewriter from "typewriter-effect";
 import img1 from '../assets/images/img1.jpg';
 import img2 from '../assets/images/img2.jpg';
@@ -8,61 +7,18 @@ import img5 from '../assets/images/img5.jpg';
 import './Slider.css'
 
 function ImgSlider() {
-  const settings = {
-    autoplay: true,
-    autoplaySpeed: 4500,
-    className: "slide_box",
-    dots: false,
-    virtualList: true,
-    
-    arrows:false,
-    
-  };
   return (
     <div className="carousel-container">
-      
-      <Slider {...settings}>
-        <div className="row">
-          <img
-            src={img1}
-            className="slide_img col-lg-12"
-            alt="Responsive img"
-          />
-          
+
+        <div className='slider-container'>
+          <figure>
+            <img src={img1} alt='img1'/>
+            <img src={img2} alt='img2'/>
+            <img src={img3} alt='img3'/>
+            <img src={img4} alt='img4'/>
+            <img src={img5} alt='img5'/>
+          </figure>
         </div>
-        <div className="row">
-          <img
-            src={img2}
-            className="slide_img col-lg-12"
-            alt="Responsive img"
-          />
-          
-        </div>
-        <div className="row">
-          <img
-            src={img3}
-            className="slide_img col-lg-12"
-            alt="Responsive img"
-          />
-          
-        </div>
-        <div className="row">
-          <img
-            src={img4}
-            className="slide_img col-lg-12"
-            alt="Responsive img"
-          />
-          
-        </div>
-        <div className="row">
-          <img
-            src={img5}
-            className="slide_img col-lg-12"
-            alt="Responsive img"
-          />
-          
-        </div>
-      </Slider>
       <div className="carousel-text">
         <span>Welcome To </span> 
         <Typewriter
