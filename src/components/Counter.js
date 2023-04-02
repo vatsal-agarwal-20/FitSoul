@@ -9,19 +9,52 @@ import crunches from '../assets/images/crunches.jpg'
 import squats from '../assets/images/squats.jpg'
 import pushups from '../assets/images/pushups.jpg'
 import { Button } from '@mui/material'
-import './counter.css'
+// import './counter.css'
 
 const styles = {
     webcam: {
         position: "absolute",
         marginRight: "auto",
         marginLeft: "auto",
-        right: 150,
-        top: 120,
+        left: 40,
+        right: 800,
+        top: 40,
         textAlign: "center",
         zIndex: 9,
-        width: 1080,
-        height: 640,
+        width: 960,
+        height: 720,
+      },
+      countBox: {
+        position: "absolute",
+        marginRight: "auto",
+        marginLeft: "auto",
+        left: 1100,
+        right: 0,
+        top: 600,
+        width: 400,
+        height: 100,
+      },
+      selectBox: {
+        position: "absolute",
+        marginRight: "auto",
+        marginLeft: "auto",
+        left: 1000,
+        right: 0,
+        top: 250,
+        textAlign: "center",
+        width: 300,
+        // color: "#05386B",
+        color: "#fff",
+        // background: "#8EE4AF",
+        background: "#000"
+      },
+      back: {
+        position: "absolute",
+        marginRight: "auto",
+        marginLeft: "auto",
+        left: 1700,
+        right: 0,
+        top: 850,
       },
 };
 
@@ -185,7 +218,7 @@ function Counter(props) {
                     await pose.send({image: webcamRef.current.video})
                 },
                 width: 640,
-                height: 480,
+                height: 640,
             })
             camera.start();
         }
@@ -198,26 +231,24 @@ function Counter(props) {
         count=0;
         direction=0;
     }
-
     
   return (
-    <div>
-        <div className='selectBox'>
+    <div className='exercise-container' style={{backgroundColor: "black", width: "100%", position: "relative", height: "100%"}}>
+        <div className='info-container' style={styles.selectBox}>
             <h1>{props.name}</h1>
-            <img src={imgSrc} width="300" alt="exercise_image" />
+            <img src={imgSrc} width="200" alt="exercise_image" />
             <br/>
-            <div style={{top: 50}} className="countBox">
                 <h1>Count</h1>
                 <input
             variant="filled"
             ref={countBox}
             value={count}
-            style={{ height: 50, fontSize: 40, width: 80 }}
+            style={{ height: 50, fontSize: 40, width: 80, textAlign: "center" }}
           />
                 <br/>
                 <br/>
+                <div className='buttons'>
                 <Button
-            style={{ top: 15 }}
             size="large"
             variant="contained"
             color="primary"
@@ -225,22 +256,26 @@ function Counter(props) {
           >
             Reset Counter
           </Button>
-            </div>
-        </div>
+          <br/>
+          <br/>
 
-        <Webcam ref={webcamRef} style={styles.webcam}/>
-        <canvas ref={canvasRef} style={styles.webcam}/>
-        <div className='back-button'>
+        
                 <Link
                 to="/workout"
                 >
                     <Button
                     size='large'
                     variant='contained'
-                    color='success'>
+                    color='success'
+                    >
                         Back
                     </Button>
                 </Link>
+                </div>
+        </div>
+        <div className='camera-container'>
+        <Webcam ref={webcamRef} style={styles.webcam} width={720} height={720} />
+        <canvas ref={canvasRef} style={styles.webcam}/>
         </div>
     </div>
   );
