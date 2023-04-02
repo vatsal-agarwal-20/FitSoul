@@ -5,8 +5,8 @@ import ExerciseSelect from '../components/ExerciseSelect'
 
 function Yoga() {
   return (
-    <div className='counter-page' style={{backgroundColor: "black", width: "100%", height: "87vh", overflowY: "hidden"}}>
-    <div className='row1' style={{display: "flex", alignItems: "center"}}>
+    <div className='counter-page' style={{backgroundColor: "black", width: "100%", height: "89vh", overflowY: "hidden"}}>
+    <div className='row1' style={{display: "flex", alignItems: "center", marginTop: "70px"}}>
     <ExerciseSelect img={virabhadrasana} text="Virabhadrasana" link="virabhadrasana"/>
     <ExerciseSelect img={trikonasana} text="Trikonasana" link="trikonasana"/>
     </div>
