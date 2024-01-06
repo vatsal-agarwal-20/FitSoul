@@ -20,7 +20,8 @@ function ImgSlider() {
           </figure>
         </div>
       <div className="carousel-text">
-        <span>Welcome To </span> 
+        <span className="text-2xl sm:text-4xl lg:text-6xl">Welcome To </span> 
+        <br/>
         <Typewriter
         options={{
           strings: [
@@ -38,5 +39,4 @@ function ImgSlider() {
     </div>
   );
 }
-
 export default ImgSlider;

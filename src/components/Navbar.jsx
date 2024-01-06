@@ -1,18 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import logo from '../../assets/images/logo.jpg'
-// import "./navbar.css"
-import { Button, Navbar } from 'flowbite-react';
+import logo from '../assets/images/logo.jpg'
 import { FaGithub } from "react-icons/fa";
+import { Button, Navbar } from 'flowbite-react';
+
 function NavbarComp() {
   return (
-<Navbar fluid className='bg-black'>
+<Navbar fluid className='bg-black py-6'>
       <Navbar.Brand href="/">
         <img src={logo} className="bg-white mx-5 h-10 w-10 sm:h-9" alt="Fitsoul" />
         <span className="self-center whitespace-nowrap text-4xl tracking-widest font-bold text-white">FITSOUL</span>
       </Navbar.Brand>
       <div className="flex md:order-2">
-        <Button><FaGithub className='h-5 w-5'/></Button>
+        <Button gradientDuoTone="tealToLime" className='mr-5'>
+          <a href='https://github.com/vatsal-agarwal-20/FitSoul' rel='noreferrer' target='_blank'><FaGithub className='h-5 w-5'/></a>
+        </Button>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
@@ -24,23 +25,6 @@ function NavbarComp() {
         <Navbar.Link href="/about" className='text-white text-2xl font-medium tracking-wide'>About</Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
-
-    // <div className='navbar'>
-
-    // <Link to="/" className='header-logo'>
-    //     <img
-    //     src={logo}
-    //     alt="LOGO"
-    //     style={{
-    //         width:"90px", marginLeft: "50px", marginBottom: "0"
-    //     }}>
-    //     </img>
-    // </Link>
-    // <Link to="/workout" className='navbar-item'>Workout</Link>
-    // <Link to="/yoga" className='navbar-item'>Yoga</Link>
-    // <Link to="/about" className='navbar-item'>About</Link>
-
-    // </div>
   )
 }
 

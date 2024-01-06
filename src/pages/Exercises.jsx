@@ -7,13 +7,12 @@ import ExerciseSelect from '../components/ExerciseSelect'
 
 function Exercises() {
   return (
-    <div className='counter-page' style={{backgroundColor: "black", width: "100%"}}>
-    <div className='row1' style={{display: "flex", alignItems: "center"}}>
+    <div className='bg-black h-full'>
+    <div className='flex pt-12 mb-10'>
     <ExerciseSelect img={bicepcurls} text="Bicep Curls" link="bicepcurls"/>
     <ExerciseSelect img={crunches} text="Crunches" link="crunches"/>
     </div>
-    <br/>
-    <div className='row2' style={{display: "flex"}}>
+    <div className='flex py-8'>
     <ExerciseSelect img={squats} text="Squats" link="squats"/>
     <ExerciseSelect img={pushups} text="Push Ups" link="pushups"/>
     </div>

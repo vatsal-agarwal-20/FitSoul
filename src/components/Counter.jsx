@@ -9,7 +9,6 @@ import crunches from '../assets/images/crunches.jpg'
 import squats from '../assets/images/squats.jpg'
 import pushups from '../assets/images/pushups.jpg'
 import { Button } from '@mui/material'
-// import './counter.css'
 
 const styles = {
     webcam: {
@@ -30,7 +29,7 @@ const styles = {
         marginLeft: "auto",
         left: 1100,
         right: 0,
-        top: 600,
+        top: 480,
         width: 400,
         height: 100,
       },
@@ -40,7 +39,7 @@ const styles = {
         marginLeft: "auto",
         left: 1000,
         right: 0,
-        top: 250,
+        top: 150,
         textAlign: "center",
         width: 300,
         // color: "#05386B",
@@ -233,17 +232,17 @@ function Counter(props) {
     }
     
   return (
-    <div className='exercise-container' style={{backgroundColor: "black", width: "100%", position: "relative", height: "100%"}}>
+    <div className='exercise-container' style={{backgroundColor: "black", width: "100%", position: "relative", height: "900px"}}>
         <div className='info-container' style={styles.selectBox}>
             <h1>{props.name}</h1>
-            <img src={imgSrc} width="200" alt="exercise_image" />
+            <img src={imgSrc} width="200" alt="exercise_image" className='mx-auto'/>
             <br/>
                 <h1>Count</h1>
                 <input
             variant="filled"
             ref={countBox}
             value={count}
-            style={{ height: 50, fontSize: 40, width: 80, textAlign: "center" }}
+            style={{ height: 50, fontSize: 40, width: 80, textAlign: "center", color: "black" }}
           />
                 <br/>
                 <br/>

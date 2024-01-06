@@ -8,8 +8,6 @@
     margin: 0 0;
     background-size: fill;
     filter: brightness(50%);
-    /* -webkit-filter: blur(2px);
-    filter: blur(2px); */
 }
 .carousel-container{
     width: 100%;
