@@ -1,18 +1,17 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Counter from './components/Counter';
-import Navbar from './components/header/Navbar';
+// import Navbar from './components/header/Navbar';
 import About from './pages/About';
 import Exercises from './pages/Exercises';
 import Home from './pages/Home';
 import Yoga from './pages/Yoga';
+import NavbarComp from './components/header/Navbar';
 
 function App() {
   return (
     <BrowserRouter>
-    <div>
-    <Navbar/>
-    </div>
+    <NavbarComp/>
     <Routes>
     <Route exact path='/' element={<Home/>}/> 
     <Route path='/about' element={<About/>}/> 

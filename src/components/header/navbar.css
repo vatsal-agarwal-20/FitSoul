@@ -11,11 +11,11 @@
 {
     display: flex;
     justify-content: start;
-    font-size: 1.3rem;
+    font-size: 2rem;
+    letter-spacing: 0.1cm;
     color: white;
     padding: 10px;
     margin: 0 3%;
-    text-transform: uppercase;
     text-decoration: none;
     font-weight: 600;
     align-items: center;
